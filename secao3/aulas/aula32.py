@@ -23,8 +23,6 @@ try:
 except:
     print("Por favor, digite um numero!")
 
-
-
 # ------------------------------------
 nome = input("Digite seu nome: ")
 
