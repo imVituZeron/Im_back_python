@@ -15,4 +15,3 @@ if nome and idade:
     print(f"A ultima letra do seu nome é {nome[-1]}")
 else:
     print("Desculpe, você deixou campos vazios!")
-    
