@@ -1,19 +1,27 @@
+import os
 def show_list(buy_list):
+    os.system('clear')
+    print("/-- Shop list --/")
     for k ,v in enumerate(buy_list):
         print(k ,v)
+    print("/--------------/")
 
 def insert_item_in_list(buy_list):
+    os.system('clear')
     value = input("Valor: ")
     buy_list.append(value)
 
-def delete_item_in_list(buy_list, index_value):
-    if index_value.isnumeric():
-        for k, v in enumerate(buy_list):
-            if index_value == k:
-                print("AQUI TA COM O ERROOOOOOOO!!!""")
-                del buy_list[index_value]
-            else:
-                print("Não existe esse indice!")
+def delete_item_in_list(buy_list=list):
+    os.system('clear')
+
+    index = input("Digite o indice que quer apagar: ")
+
+    if index.isnumeric():
+        index = int(index)
+        for k, _ in enumerate(buy_list):
+            if index == k:
+                print('Apagado com sucesso!')
+                del buy_list[index]
 
 BUY_LIST = []
 
@@ -28,8 +36,7 @@ while True:
     if option == "i":
         insert_item_in_list(BUY_LIST)
     elif option == "a":
-        index = input("Digite o indice que quer apagar: ")
-        delete_item_in_list(BUY_LIST, index)
+        delete_item_in_list(BUY_LIST)
     elif option == "l":
         show_list(BUY_LIST)
 
