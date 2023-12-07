@@ -1,19 +1,39 @@
-string_cpf = "995.724.250"
-string_without_dot = string_cpf.split('.')
-join_strings = ''.join(string_without_dot) 
+def second_digit(ten_digits=str, first_digit=int):
+    nine_plus_first = ten_digits + str(first_digit)
+    
+    second_total_sum = 0
+    second_count = 11
 
-total_sum = 0
-count = 10
-for num in join_strings:
-    total_sum += int(num) * count
-    print(f"{num} X {count} = {total_sum}")
-    count -= 1
+    for num in nine_plus_first:
+        second_total_sum += int(num) * second_count
+        print(f"{num} X {second_count} = {second_total_sum}")
+        second_count -= 1
 
-result = (total_sum * 10) % 11
-if result > 9:
-    first_number = 0
-else:
-    first_number = result
+    second_number = (second_total_sum * 10) % 11
+    second_number = second_number if second_number <= 9 else 0
+    print(second_number)
 
-print(first_number)
+    return second_number
 
+
+def first_digit(nine_digits=str):
+    first_total_sum = 0
+    first_count = 10
+
+    for num in nine_digits:
+        first_total_sum += int(num) * first_count
+        print(f"{num} X {first_count} = {first_total_sum}")
+        first_count -= 1
+
+    first_number = (first_total_sum * 10) % 11
+    first_number = first_number if first_number <= 9 else 0
+    print(first_number)
+
+    return first_number
+
+
+string_cpf = "74682489070"
+first_nine_digits = string_cpf[:9]
+
+first_number = first_digit(first_nine_digits)
+second_number = second_digit(first_nine_digits, first_number)
