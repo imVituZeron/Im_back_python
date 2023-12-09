@@ -1,3 +1,4 @@
+import re, sys
 def second_digit(ten_digits=str, first_digit=int):
     nine_plus_first = ten_digits + str(first_digit)
     
@@ -34,7 +35,14 @@ def first_digit(nine_digits=str):
     return first_number
 
 
-user_cpf = "74682489070"
+get_cpf = input('CPF [746.824.890-70]: ')
+user_cpf = re.sub(r'[^0-9]','',  get_cpf)
+
+its_sequential = get_cpf == get_cpf[0] * len(get_cpf)
+if its_sequential:
+    print('You sent sequential datas!')
+    sys.exit()
+
 first_nine_digits = user_cpf[:9]
 
 first_number = first_digit(first_nine_digits)
@@ -42,7 +50,7 @@ second_number = second_digit(first_nine_digits, first_number)
 
 calculate_cpf = f"{first_nine_digits}{first_number}{second_number}"
 
-print(f"CPF was given by user: {user_cpf}")
-print(f"CPF was made by machine: {calculate_cpf}")
+print(f"The CPF given by user: {user_cpf}")
+print(f"The CPF made by machine: {calculate_cpf}")
 
 print("valid!") if user_cpf == calculate_cpf else print("invalid!")
