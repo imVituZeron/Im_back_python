@@ -1,0 +1,8 @@
+s1 = set()
+s1.add(1)
+s1.add("Vitor")
+s1.update(("Ola mundo",))
+#s1.clear()
+s1.discard("Ola mundo")
+s1.discard("Vitor")
+print(s1)
